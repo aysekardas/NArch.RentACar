@@ -400,3 +400,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+*appsettings.Development.json
+/src/nArch.RentACar/WebAPI/appsettings.Development.json
