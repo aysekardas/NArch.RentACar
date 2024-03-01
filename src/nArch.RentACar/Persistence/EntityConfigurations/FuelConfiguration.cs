@@ -12,6 +12,7 @@ public class FuelConfiguration : IEntityTypeConfiguration<Fuel>
 {
     public void Configure(EntityTypeBuilder<Fuel> builder)
     {
-        throw new NotImplementedException();
+        builder.HasKey(i => i.Id);
+        builder.ToTable("Fuels");
     }
 }

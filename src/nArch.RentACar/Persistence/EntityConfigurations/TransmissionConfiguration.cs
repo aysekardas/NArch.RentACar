@@ -10,8 +10,10 @@ using System.Threading.Tasks;
 namespace Persistence.EntityConfigurations;
 public class TransmissionConfiguration : IEntityTypeConfiguration<Transmission>
 {
-    public void Configure(EntityTypeBuilder<Transmission> builder)
-    {
-        throw new NotImplementedException();
-    }
+        public void Configure(EntityTypeBuilder<Transmission> builder)
+        {
+            builder.HasKey(i => i.Id);
+            builder.ToTable("Transmissions");
+        }
+    
 }
