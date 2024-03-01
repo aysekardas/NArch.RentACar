@@ -25,4 +25,9 @@
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Features\Car\" />
+    <Folder Include="Features\Fuel\" />
+    <Folder Include="Features\Model\" />
+  </ItemGroup>
 </Project>
