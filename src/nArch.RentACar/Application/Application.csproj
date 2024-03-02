@@ -26,8 +26,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\Car\" />
-    <Folder Include="Features\Fuel\" />
-    <Folder Include="Features\Model\" />
+    <Folder Include="Features\Fuels\" />
+    <Folder Include="Features\Models\" />
   </ItemGroup>
 </Project>
