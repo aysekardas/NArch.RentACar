@@ -1,11 +1,12 @@
 using FluentValidation;
 
-namespace Application.Features.Cars.Commands.Create;
+namespace Application.Features.Cars.Commands.Update;
 
-public class CreateCarCommandValidator : AbstractValidator<CreateCarCommand>
+public class UpdateCarCommandValidator : AbstractValidator<UpdateCarCommand>
 {
-    public CreateCarCommandValidator()
+    public UpdateCarCommandValidator()
     {
+        RuleFor(c => c.Id).NotEmpty();
         RuleFor(c => c.ColorId).NotEmpty();
         RuleFor(c => c.ModelId).NotEmpty();
         RuleFor(c => c.CarState).NotEmpty();

@@ -1,9 +1,9 @@
 using Domain.Entities;
-using NArchitecture.Core.Application.Responses;
+using NArchitecture.Core.Application.Dtos;
 
-namespace Application.Features.Cars.Commands.Create;
+namespace Application.Features.Cars.Queries.GetList;
 
-public class CreatedCarResponse : IResponse
+public class GetListCarListItemDto : IDto
 {
     public Guid Id { get; set; }
     public Guid ColorId { get; set; }

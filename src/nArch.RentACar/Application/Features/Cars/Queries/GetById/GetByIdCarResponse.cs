@@ -1,9 +1,9 @@
 using Domain.Entities;
 using NArchitecture.Core.Application.Responses;
 
-namespace Application.Features.Cars.Commands.Create;
+namespace Application.Features.Cars.Queries.GetById;
 
-public class CreatedCarResponse : IResponse
+public class GetByIdCarResponse : IResponse
 {
     public Guid Id { get; set; }
     public Guid ColorId { get; set; }

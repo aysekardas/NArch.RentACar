@@ -9,10 +9,11 @@ using NArchitecture.Core.Application.Pipelines.Logging;
 using MediatR;
 using static Application.Features.Cars.Constants.CarsOperationClaims;
 
-namespace Application.Features.Cars.Commands.Create;
+namespace Application.Features.Cars.Commands.Update;
 
-public class CreateCarCommand : IRequest<CreatedCarResponse>, ISecuredRequest, ICacheRemoverRequest, ILoggableRequest
+public class UpdateCarCommand : IRequest<UpdatedCarResponse>, ISecuredRequest, ICacheRemoverRequest, ILoggableRequest
 {
+    public Guid Id { get; set; }
     public Guid ColorId { get; set; }
     public Guid ModelId { get; set; }
     public string CarState { get; set; }
@@ -21,19 +22,19 @@ public class CreateCarCommand : IRequest<CreatedCarResponse>, ISecuredRequest, I
     public string Plate { get; set; }
     public Model? Model { get; set; }
 
-    public string[] Roles => [Admin, Write, CarsOperationClaims.Create];
+    public string[] Roles => [Admin, Write, CarsOperationClaims.Update];
 
     public bool BypassCache { get; }
     public string? CacheKey { get; }
     public string[]? CacheGroupKey => ["GetCars"];
 
-    public class CreateCarCommandHandler : IRequestHandler<CreateCarCommand, CreatedCarResponse>
+    public class UpdateCarCommandHandler : IRequestHandler<UpdateCarCommand, UpdatedCarResponse>
     {
         private readonly IMapper _mapper;
         private readonly ICarRepository _carRepository;
         private readonly CarBusinessRules _carBusinessRules;
 
-        public CreateCarCommandHandler(IMapper mapper, ICarRepository carRepository,
+        public UpdateCarCommandHandler(IMapper mapper, ICarRepository carRepository,
                                          CarBusinessRules carBusinessRules)
         {
             _mapper = mapper;
@@ -41,13 +42,15 @@ public class CreateCarCommand : IRequest<CreatedCarResponse>, ISecuredRequest, I
             _carBusinessRules = carBusinessRules;
         }
 
-        public async Task<CreatedCarResponse> Handle(CreateCarCommand request, CancellationToken cancellationToken)
+        public async Task<UpdatedCarResponse> Handle(UpdateCarCommand request, CancellationToken cancellationToken)
         {
-            Car car = _mapper.Map<Car>(request);
+            Car? car = await _carRepository.GetAsync(predicate: c => c.Id == request.Id, cancellationToken: cancellationToken);
+            await _carBusinessRules.CarShouldExistWhenSelected(car);
+            car = _mapper.Map(request, car);
 
-            await _carRepository.AddAsync(car);
+            await _carRepository.UpdateAsync(car!);
 
-            CreatedCarResponse response = _mapper.Map<CreatedCarResponse>(car);
+            UpdatedCarResponse response = _mapper.Map<UpdatedCarResponse>(car);
             return response;
         }
     }
