@@ -13,5 +13,5 @@ public class Fuel : Entity<Guid>
 
     public string Name { get; set; }
 
-    public Model? Model { get; set; } = null;
+    public virtual Model? Model { get; set; } = default!;
 }

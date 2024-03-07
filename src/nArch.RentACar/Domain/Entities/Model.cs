@@ -22,13 +22,13 @@ namespace Domain.Entities
         public Guid FuelId { get; set; }
         public Guid TransmissionId { get; set; }
 
-        public Brand? Brand { get; set; } = null;
+        public virtual Brand? Brand { get; set; } = default!;
 
-        public Fuel? Fuel { get; set; } = null;
+        public virtual Fuel? Fuel { get; set; } = default!;
 
-        public Transmission? Transmission { get; set; } = null; //one-to-one 
+        public  virtual Transmission? Transmission { get; set; } = default!; //one-to-one 
 
-        public ICollection<Car>? Cars { get; set; } = null; //one-to many 
+        public virtual ICollection<Car>? Cars { get; set; } = default!; //one-to many 
 
     }
 

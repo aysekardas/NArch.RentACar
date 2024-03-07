@@ -17,7 +17,6 @@ public class CarConfiguration : IEntityTypeConfiguration<Car>
         builder.Property(c => c.Kilometer).HasColumnName("Kilometer");
         builder.Property(c => c.ModelYear).HasColumnName("ModelYear");
         builder.Property(c => c.Plate).HasColumnName("Plate");
-        builder.Property(c => c.Model).HasColumnName("Model");
         builder.Property(c => c.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(c => c.UpdatedDate).HasColumnName("UpdatedDate");
         builder.Property(c => c.DeletedDate).HasColumnName("DeletedDate");

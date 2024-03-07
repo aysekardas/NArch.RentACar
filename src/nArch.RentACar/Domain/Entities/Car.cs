@@ -22,5 +22,5 @@ public class Car : Entity<Guid>
 
     public string Plate { get; set; }
 
-    public Model? Model { get; set; } = null;
+    public virtual Model? Model { get; set; } = default!;
 }
