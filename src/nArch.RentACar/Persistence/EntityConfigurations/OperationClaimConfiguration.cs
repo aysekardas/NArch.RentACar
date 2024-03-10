@@ -10,6 +10,7 @@ using Application.Features.Cars.Constants;
 using Application.Features.Fuels.Constants;
 using Application.Features.Models.Constants;
 using Application.Features.Transmissions.Constants;
+using Application.Features.Customers.Constants;
 
 namespace Persistence.EntityConfigurations;
 
@@ -153,6 +154,20 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
                 new() { Id = ++lastId, Name = TransmissionsOperationClaims.Create },
                 new() { Id = ++lastId, Name = TransmissionsOperationClaims.Update },
                 new() { Id = ++lastId, Name = TransmissionsOperationClaims.Delete },
+            ]
+        );
+        #endregion
+        
+        
+        #region Customers
+        featureOperationClaims.AddRange(
+            [
+                new() { Id = ++lastId, Name = CustomersOperationClaims.Admin },
+                new() { Id = ++lastId, Name = CustomersOperationClaims.Read },
+                new() { Id = ++lastId, Name = CustomersOperationClaims.Write },
+                new() { Id = ++lastId, Name = CustomersOperationClaims.Create },
+                new() { Id = ++lastId, Name = CustomersOperationClaims.Update },
+                new() { Id = ++lastId, Name = CustomersOperationClaims.Delete },
             ]
         );
         #endregion

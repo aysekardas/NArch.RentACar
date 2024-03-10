@@ -20,6 +20,7 @@ public class BaseDbContext : DbContext
     public DbSet<Car> Cars { get; set; }
     public DbSet<Fuel> Fuels { get; set; }
     public DbSet<Transmission> Transmissions { get; set; }
+    public DbSet<Customer> Customers { get; set; }
 
 
     public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration)

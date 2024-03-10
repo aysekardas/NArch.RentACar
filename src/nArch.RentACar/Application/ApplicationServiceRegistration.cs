@@ -23,6 +23,7 @@ using Application.Services.Cars;
 using Application.Services.Fuels;
 using Application.Services.Models;
 using Application.Services.Transmissions;
+using Application.Services.Customers;
 
 namespace Application;
 
@@ -67,6 +68,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IFuelService, FuelManager>();
         services.AddScoped<IModelService, ModelManager>();
         services.AddScoped<ITransmissionService, TransmissionManager>();
+        services.AddScoped<ICustomerService, CustomerManager>();
         return services;
     }
 
