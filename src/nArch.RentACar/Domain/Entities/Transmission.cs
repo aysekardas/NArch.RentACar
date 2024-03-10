@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 namespace Domain.Entities;
 public class Transmission : Entity<Guid>
 {
-    public Transmission() { }
     public string Name { get; set; }
 
     public virtual Model? Model { get; set; } = default!;

@@ -21,6 +21,7 @@ using NArchitecture.Core.Mailing.MailKit;
 using NArchitecture.Core.Security.DependencyInjection;
 using Application.Services.Cars;
 using Application.Services.Fuels;
+using Application.Services.Models;
 
 namespace Application;
 
@@ -63,6 +64,7 @@ public static class ApplicationServiceRegistration
 
         services.AddScoped<ICarService, CarManager>();
         services.AddScoped<IFuelService, FuelManager>();
+        services.AddScoped<IModelService, ModelManager>();
         return services;
     }
 
