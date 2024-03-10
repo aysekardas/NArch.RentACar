@@ -9,6 +9,7 @@ using NArchitecture.Core.Security.Constants;
 using Application.Features.Cars.Constants;
 using Application.Features.Fuels.Constants;
 using Application.Features.Models.Constants;
+using Application.Features.Transmissions.Constants;
 
 namespace Persistence.EntityConfigurations;
 
@@ -138,6 +139,20 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
                 new() { Id = ++lastId, Name = ModelsOperationClaims.Create },
                 new() { Id = ++lastId, Name = ModelsOperationClaims.Update },
                 new() { Id = ++lastId, Name = ModelsOperationClaims.Delete },
+            ]
+        );
+        #endregion
+        
+        
+        #region Transmissions
+        featureOperationClaims.AddRange(
+            [
+                new() { Id = ++lastId, Name = TransmissionsOperationClaims.Admin },
+                new() { Id = ++lastId, Name = TransmissionsOperationClaims.Read },
+                new() { Id = ++lastId, Name = TransmissionsOperationClaims.Write },
+                new() { Id = ++lastId, Name = TransmissionsOperationClaims.Create },
+                new() { Id = ++lastId, Name = TransmissionsOperationClaims.Update },
+                new() { Id = ++lastId, Name = TransmissionsOperationClaims.Delete },
             ]
         );
         #endregion

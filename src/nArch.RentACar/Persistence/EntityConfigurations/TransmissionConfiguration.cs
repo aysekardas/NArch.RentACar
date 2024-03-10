@@ -1,19 +1,21 @@
-﻿using Domain.Entities;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Persistence.EntityConfigurations;
+
 public class TransmissionConfiguration : IEntityTypeConfiguration<Transmission>
 {
-        public void Configure(EntityTypeBuilder<Transmission> builder)
-        {
-            builder.HasKey(i => i.Id);
-            builder.ToTable("Transmissions");
-        }
-    
+    public void Configure(EntityTypeBuilder<Transmission> builder)
+    {
+        builder.ToTable("Transmissions").HasKey(t => t.Id);
+
+        builder.Property(t => t.Id).HasColumnName("Id").IsRequired();
+        builder.Property(t => t.Name).HasColumnName("Name");
+        builder.Property(t => t.CreatedDate).HasColumnName("CreatedDate").IsRequired();
+        builder.Property(t => t.UpdatedDate).HasColumnName("UpdatedDate");
+        builder.Property(t => t.DeletedDate).HasColumnName("DeletedDate");
+
+        builder.HasQueryFilter(t => !t.DeletedDate.HasValue);
+    }
 }

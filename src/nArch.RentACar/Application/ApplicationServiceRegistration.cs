@@ -22,6 +22,7 @@ using NArchitecture.Core.Security.DependencyInjection;
 using Application.Services.Cars;
 using Application.Services.Fuels;
 using Application.Services.Models;
+using Application.Services.Transmissions;
 
 namespace Application;
 
@@ -65,6 +66,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<ICarService, CarManager>();
         services.AddScoped<IFuelService, FuelManager>();
         services.AddScoped<IModelService, ModelManager>();
+        services.AddScoped<ITransmissionService, TransmissionManager>();
         return services;
     }
 
