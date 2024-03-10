@@ -11,6 +11,7 @@ using Application.Features.Fuels.Constants;
 using Application.Features.Models.Constants;
 using Application.Features.Transmissions.Constants;
 using Application.Features.Customers.Constants;
+using Application.Features.IndividualCustomers.Constants;
 
 namespace Persistence.EntityConfigurations;
 
@@ -168,6 +169,20 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
                 new() { Id = ++lastId, Name = CustomersOperationClaims.Create },
                 new() { Id = ++lastId, Name = CustomersOperationClaims.Update },
                 new() { Id = ++lastId, Name = CustomersOperationClaims.Delete },
+            ]
+        );
+        #endregion
+        
+        
+        #region IndividualCustomers
+        featureOperationClaims.AddRange(
+            [
+                new() { Id = ++lastId, Name = IndividualCustomersOperationClaims.Admin },
+                new() { Id = ++lastId, Name = IndividualCustomersOperationClaims.Read },
+                new() { Id = ++lastId, Name = IndividualCustomersOperationClaims.Write },
+                new() { Id = ++lastId, Name = IndividualCustomersOperationClaims.Create },
+                new() { Id = ++lastId, Name = IndividualCustomersOperationClaims.Update },
+                new() { Id = ++lastId, Name = IndividualCustomersOperationClaims.Delete },
             ]
         );
         #endregion
