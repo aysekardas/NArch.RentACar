@@ -26,6 +26,7 @@ using Application.Services.Transmissions;
 using Application.Services.Customers;
 using Application.Services.IndividualCustomers;
 using Application.Services.CorporateCustomers;
+using Application.Services.Rentals;
 
 namespace Application;
 
@@ -73,6 +74,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<ICustomerService, CustomerManager>();
         services.AddScoped<IIndividualCustomerService, IndividualCustomerManager>();
         services.AddScoped<ICorporateCustomerService, CorporateCustomerManager>();
+        services.AddScoped<IRentalService, RentalManager>();
         return services;
     }
 

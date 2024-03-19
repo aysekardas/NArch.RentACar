@@ -13,6 +13,7 @@ using Application.Features.Transmissions.Constants;
 using Application.Features.Customers.Constants;
 using Application.Features.IndividualCustomers.Constants;
 using Application.Features.CorporateCustomers.Constants;
+using Application.Features.Rentals.Constants;
 
 namespace Persistence.EntityConfigurations;
 
@@ -198,6 +199,20 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
                 new() { Id = ++lastId, Name = CorporateCustomersOperationClaims.Create },
                 new() { Id = ++lastId, Name = CorporateCustomersOperationClaims.Update },
                 new() { Id = ++lastId, Name = CorporateCustomersOperationClaims.Delete },
+            ]
+        );
+        #endregion
+        
+        
+        #region Rentals
+        featureOperationClaims.AddRange(
+            [
+                new() { Id = ++lastId, Name = RentalsOperationClaims.Admin },
+                new() { Id = ++lastId, Name = RentalsOperationClaims.Read },
+                new() { Id = ++lastId, Name = RentalsOperationClaims.Write },
+                new() { Id = ++lastId, Name = RentalsOperationClaims.Create },
+                new() { Id = ++lastId, Name = RentalsOperationClaims.Update },
+                new() { Id = ++lastId, Name = RentalsOperationClaims.Delete },
             ]
         );
         #endregion

@@ -23,6 +23,7 @@ public class BaseDbContext : DbContext
     public DbSet<Customer> Customers { get; set; }
     public DbSet<IndividualCustomer> IndividualCustomers { get; set; }
     public DbSet<CorporateCustomer> CorporateCustomers { get; set; }
+    public DbSet<Rental> Rentals { get; set; }
 
 
     public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration)
